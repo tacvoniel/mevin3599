@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', Arial, sans-serif;
+    overflow-x: hidden;
+    position: relative;
+    background-color: black; /* Latar belakang hitam */
+}
+
+.snow-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Menghindari interaksi dengan elemen */
+    overflow: hidden;
+}
+
+.snowflake {
+    position: absolute;
+    top: -10px;
+    width: 8px; /* Ukuran salju */
+    height: 8px; /* Ukuran salju */
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300vh;
+    padding: 20px;
+}
+
+.section {
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    text-align: center;
+    margin-bottom: 50vh; /* Memastikan setiap bagian memiliki cukup ruang */
+    padding: 50px 0; /* Menambahkan padding atas dan bawah untuk spasi */
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+h1 {
+    font-size: 48px; /* Ukuran font besar untuk judul */
+    margin: 10px 0; /* Spasi atas dan bawah */
+    color: white; /* Warna teks putih */
+}
+
+.description {
+    font-size: 24px; /* Ukuran font untuk deskripsi */
+    margin-top: 10px; /* Spasi antara judul dan deskripsi */
+    color: white; /* Warna teks putih */
+}
+
+.logos {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Jarak antar logo */
+}
+
+.logo img {
+    width: 50px; /* Ukuran logo */
+    transition: transform 0.2s; /* Transisi saat hover */
+}
+
+.logo:hover img {
+    transform: scale(1.2); /* Membesarkan logo saat hover */
+}
